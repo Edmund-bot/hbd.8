@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Isaac!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: #fff;
+      background-color: #ffc0cb; /* Pink background */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #ffdf00;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      margin: 0;
+      padding: 20px;
+    }
+    form {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
+      width: 90%;
+      max-width: 400px;
+    }
+    input[type="text"], input[type="email"] {
+      font-size: 1rem;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #ffdf00;
+      color: #000;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button:hover {
+      background-color: #ff9a00;
+    }
+    .emoji {
+      position: absolute;
+      font-size: 2rem;
+      animation: float 5s linear infinite;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100vh);
+      }
+      100% {
+        transform: translateY(-10vh);
+      }
+    }
+    .firework {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ffdf00, #ff9a00);
+      animation: explode 1s linear infinite;
+    }
+    @keyframes explode {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(3);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Dear Isaac, your yet another triumphant orbit around the sun has been successfully completed. Live long to blow off a thousand plus candles, happy birthday 😊!</h1>
+
+  <p>Leave your birthday wishes for Isaac:</p>
+  <form action="https://formspree.io/f/xnnjjpor" method="POST">
+    <input type="text" name="message" placeholder="Your birthday wish..." required>
+    <input type="email" name="_replyto" placeholder="Your email (optional)">
+    <button type="submit">Send Wish</button>
+  </form>
+
+  <script>
+    // Function to create random emojis
+    function createEmoji() {
+      const emojis = ['🎂', '🍾', '🎉', '🎈', '🥳'];
+      const emoji = document.createElement("div");
+      emoji.classList.add("emoji");
+      emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = Math.random() * 100 + "vw";
+      emoji.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+      document.body.appendChild(emoji);
+      setTimeout(() => emoji.remove(), 5000);
+    }
+
+    // Create multiple emojis at intervals
+    setInterval(createEmoji, 500);
+
+    // Fireworks effect
+    function createFirework() {
+      const firework = document.createElement("div");
+      firework.classList.add("firework");
+      firework.style.left = Math.random() * 100 + "vw";
+      firework.style.top = Math.random() * 100 + "vh";
+      firework.style.animationDuration = Math.random() * 1 + 0.5 + "s";
+
+      document.body.appendChild(firework);
+      setTimeout(() => firework.remove(), 1000);
+    }
+
+    const fireworkInterval = setInterval(createFirework, 100);
+    setTimeout(() => {
+      clearInterval(fireworkInterval);
+    }, 5000); // Stops the fireworks after 5 seconds
+  </script>
+</body>
+</html>
